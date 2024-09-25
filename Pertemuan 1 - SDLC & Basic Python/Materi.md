@@ -1,8 +1,8 @@
-# _1. SDLC (Software Development Life Cycle)_
+# 1. SDLC (Software Development Life Cycle)
 
 Software Development Life Cycle (SDLC) adalah proses terstruktur yang digunakan oleh pengembang perangkat lunak untuk merancang, mengembangkan, menguji, dan mendistribusikan perangkat lunak berkualitas tinggi. SDLC terdiri dari beberapa tahapan yang membantu memastikan perangkat lunak yang dikembangkan memenuhi kebutuhan pengguna, bebas dari kesalahan besar, dan dikirimkan tepat waktu. Berikut adalah tahapan-tahapan SDLC:
 
-## _Tahapan SDLC:_
+## Tahapan SDLC:
 
 1. **Planning (Perencanaan):**
 
@@ -37,7 +37,7 @@ Software Development Life Cycle (SDLC) adalah proses terstruktur yang digunakan 
    - Setelah perangkat lunak diluncurkan, tahap pemeliharaan dimulai.
    - Mencakup perbaikan bug, update fitur, dan peningkatan sistem berdasarkan feedback pengguna.
 
-## _Metodologi SDLC:_
+## Metodologi SDLC:
 
 - **Waterfall:** Proses linier di mana satu fase harus diselesaikan sebelum fase berikutnya dimulai.
 - **Agile:** Metodologi yang lebih fleksibel dan iteratif, di mana pengembangan dilakukan dalam sprint pendek dengan melibatkan feedback pengguna secara terus-menerus.
@@ -45,11 +45,11 @@ Software Development Life Cycle (SDLC) adalah proses terstruktur yang digunakan 
 
 ---
 
-# _2. Basic Python Programming_
+# 2. Basic Python Programming
 
 Python adalah bahasa pemrograman yang mudah dipelajari dan digunakan, serta banyak diaplikasikan di berbagai bidang, mulai dari pengembangan web hingga analisis data. Berikut adalah konsep dasar Python:
 
-## _2.1. Variabel dan Tipe Data_
+## 2.1. Variabel dan Tipe Data
 
 Di Python, variabel digunakan untuk menyimpan data, dan tipe data menentukan jenis nilai yang dapat disimpan. Beberapa tipe data dasar di Python adalah:
 
@@ -67,9 +67,9 @@ name = "Candra" # str
 is_student = True # bool
 ```
 
-## _2.2. Struktur Kontrol_
+## 2.2. Struktur Kontrol
 
-### _a. If-Else Statement_
+### a. If-Else Statement
 
 If-else digunakan untuk pengambilan keputusan.
 
@@ -83,7 +83,7 @@ else:
     print("Belum dewasa")
 ```
 
-### _b. Looping (Perulangan)_
+### b. Looping (Perulangan)
 
 - **For Loop:** Digunakan untuk iterasi pada elemen dalam list atau string.
 
@@ -105,7 +105,7 @@ else:
       count += 1
   ```
 
-## _2.3. Fungsi_
+## 2.3. Fungsi
 
 Fungsi adalah blok kode yang dapat digunakan kembali.
 
@@ -118,7 +118,7 @@ def greet(name):
 greet("Candra")
 ```
 
-## _2.4. List dan Dictionary_
+## 2.4. List dan Dictionary
 
 - **List:** Kumpulan nilai yang dapat diakses dengan indeks.
 
@@ -138,7 +138,7 @@ greet("Candra")
   print(person["name"])  # Output: Candra
   ```
 
-## _2.5. Input dan Output_
+## 2.5. Input dan Output
 
 - **Input:** Mengambil data dari pengguna.
 
