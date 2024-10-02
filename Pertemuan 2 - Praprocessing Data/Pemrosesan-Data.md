@@ -31,7 +31,9 @@ Boxplot adalah grafik statistik yang menampilkan persebaran data berdasarkan kua
 
 - **Median** (Garis tengah kotak): Menunjukkan nilai tengah data.
 - **Kotak**: Menunjukkan distribusi antara kuartil pertama (Q1) dan kuartil ketiga (Q3).
-- **Whiskers**: Garis yang memperpanjang dari kotak, mewakili data yang tidak dianggap outlier. - **Panjang Whiskers Pendek**: Jika whiskers pendek, ini menunjukkan bahwa data memiliki sebaran yang sempit di luar kuartil, yang berarti sebagian besar nilai data terletak dekat dengan median. - **Panjang Whiskers Panjang:** Jika whiskers panjang, ini menunjukkan bahwa data memiliki sebaran yang lebih luas di luar kuartil, menunjukkan bahwa ada lebih banyak variasi atau nilai ekstrim di luar rentang yang normal.
+- **Whiskers**: Garis yang memperpanjang dari kotak, mewakili data yang tidak dianggap outlier.
+    - **Panjang Whiskers Pendek**: Jika whiskers pendek, ini menunjukkan bahwa data memiliki sebaran yang sempit di luar kuartil, yang berarti sebagian besar nilai data terletak dekat dengan median.
+    - **Panjang Whiskers Panjang:** Jika whiskers panjang, ini menunjukkan bahwa data memiliki sebaran yang lebih luas di luar kuartil, menunjukkan bahwa ada lebih banyak variasi atau nilai ekstrim di luar rentang yang normal.
 
 - **Outlier**: Titik-titik di luar whiskers yang dianggap data ekstrem.
 
