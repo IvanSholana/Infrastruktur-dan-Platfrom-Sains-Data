@@ -8,7 +8,9 @@ Dalam **Data Science Life Cycle**, praproses data (data preprocessing) adalah la
 4. **Data Reduction (Reduksi Data)**: Menyederhanakan data dengan menghapus fitur atau kolom yang tidak relevan, atau menggunakan teknik seperti Principal Component Analysis (PCA) untuk mengurangi dimensi data.
 6. **Feature Engineering:** Proses menciptakan fitur baru atau mengubah fitur yang ada untuk membuatnya lebih informatif bagi model machine learning.
 
-Mari untuk memahami seluruh progress data, kita lakukan seluruh proses di atas pada preprocessing file project:
+Mari untuk memahami seluruh progress data, kita lakukan seluruh proses di atas pada preprocessing file project menggunakan dataset berikut:
+
+https://www.kaggle.com/c/spaceship-titanic/overview
 
 # Explanatory Data Analysis
 
