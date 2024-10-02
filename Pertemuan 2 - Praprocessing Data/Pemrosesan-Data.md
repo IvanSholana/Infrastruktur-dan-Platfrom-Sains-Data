@@ -6,7 +6,7 @@ Dalam **Data Science Life Cycle**, praproses data (data preprocessing) adalah la
 2. **Data Transformation (Transformasi Data)**: Mengubah format data agar lebih sesuai untuk analisis, seperti normalisasi, encoding data kategorikal, atau melakukan transformasi logaritmik pada distribusi yang tidak normal.
 3. **Data Integration (Integrasi Data)**: Menggabungkan beberapa sumber data jika diperlukan.
 4. **Data Reduction (Reduksi Data)**: Menyederhanakan data dengan menghapus fitur atau kolom yang tidak relevan, atau menggunakan teknik seperti Principal Component Analysis (PCA) untuk mengurangi dimensi data.
-6. **Feature Engineering:** Proses menciptakan fitur baru atau mengubah fitur yang ada untuk membuatnya lebih informatif bagi model machine learning.
+5. **Feature Engineering:** Proses menciptakan fitur baru atau mengubah fitur yang ada untuk membuatnya lebih informatif bagi model machine learning.
 
 Mari untuk memahami seluruh progress data, kita lakukan seluruh proses di atas pada preprocessing file project menggunakan dataset berikut:
 
@@ -24,12 +24,19 @@ Tentu! Mari kita sesuaikan materi praproses dengan data yang telah kita gunakan 
 Boxplot adalah grafik statistik yang menampilkan persebaran data berdasarkan kuartil. Grafik ini membantu mengidentifikasi outlier dan mengetahui penyebaran data.
 
 **Cara Membaca Boxplot:**
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
 - **Median** (Garis tengah kotak): Menunjukkan nilai tengah data.
 - **Kotak**: Menunjukkan distribusi antara kuartil pertama (Q1) dan kuartil ketiga (Q3).
-- **Whiskers**: Garis yang memperpanjang dari kotak, mewakili data yang tidak dianggap outlier.
+- **Whiskers**: Garis yang memperpanjang dari kotak, mewakili data yang tidak dianggap outlier. - **Panjang Whiskers Pendek**: Jika whiskers pendek, ini menunjukkan bahwa data memiliki sebaran yang sempit di luar kuartil, yang berarti sebagian besar nilai data terletak dekat dengan median. - **Panjang Whiskers Panjang:** Jika whiskers panjang, ini menunjukkan bahwa data memiliki sebaran yang lebih luas di luar kuartil, menunjukkan bahwa ada lebih banyak variasi atau nilai ekstrim di luar rentang yang normal.
+
 - **Outlier**: Titik-titik di luar whiskers yang dianggap data ekstrem.
 
 **Kode Python untuk Boxplot:**
+
 ```python
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -43,6 +50,7 @@ plt.show()
 ```
 
 **Cara Membaca Grafik:**
+
 - Melihat rentang nilai (whiskers).
 - Membandingkan median antara kategori (Transported).
 - Mengidentifikasi apakah terdapat outlier pada usia penumpang.
@@ -54,10 +62,12 @@ plt.show()
 **Scatter Plot** menggambarkan hubungan antara dua variabel numerik. Dalam konteks dataset ini, kita bisa melihat hubungan antara `RoomService` dan `Total_Spending`.
 
 **Cara Membaca Scatter Plot:**
+
 - **Tidak Berkorelasi**: Titik-titik tersebar secara acak.
 - **Korelasi Rendah/Sedang/Tinggi**: Pola lebih jelas; dapat mengidentifikasi kecenderungan naik atau turun.
 
 **Kode Scatter Plot untuk Korelasi:**
+
 ```python
 # Scatter plot untuk RoomService vs Total Spending
 plt.scatter(df['RoomService_Filled_Median'], df['Total_Spending'])
@@ -68,6 +78,7 @@ plt.show()
 ```
 
 **Cara Membaca Korelasi:**
+
 - Melihat bagaimana titik-titik tersebar. Apakah ada pola yang menunjukkan hubungan antara pengeluaran di layanan kamar dan total pengeluaran?
 
 ---
@@ -78,6 +89,7 @@ plt.show()
 Heatmap adalah representasi grafik matriks korelasi antar variabel numerik, dengan warna menunjukkan kekuatan korelasi.
 
 **Kode Python untuk Heatmap:**
+
 ```python
 # Menghitung korelasi dan membuat heatmap
 corr_matrix = df.corr()
@@ -89,6 +101,7 @@ plt.show()
 ```
 
 **Cara Membaca Heatmap:**
+
 - **-1**: Korelasi negatif sempurna (warna merah).
 - **0**: Tidak ada korelasi (warna putih).
 - **1**: Korelasi positif sempurna (warna biru).
@@ -101,6 +114,7 @@ plt.show()
 Histogram menampilkan distribusi frekuensi dari variabel numerik. Sumbu x menunjukkan rentang nilai, dan sumbu y menunjukkan frekuensi kemunculan.
 
 **Kode Python untuk Histogram:**
+
 ```python
 # Membuat histogram dari kolom 'Age'
 plt.hist(df['Age_Filled_Mean'], bins=10, edgecolor='black')
@@ -111,6 +125,7 @@ plt.show()
 ```
 
 **Cara Membaca Histogram:**
+
 - **Distribusi Normal**: Grafik berbentuk lonceng, simetris.
 - **Distribusi Positif Skewed**: Grafik condong ke kiri (ekor panjang di kanan).
 - **Distribusi Negatif Skewed**: Grafik condong ke kanan (ekor panjang di kiri).
