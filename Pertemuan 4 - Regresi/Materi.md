@@ -15,20 +15,17 @@ Metode ini mirip dengan cara manusia belajar dari pengalaman. Jika seorang anak 
 Supervised Learning adalah model machine learning yang menggunakan **data training** yang berisi jawaban untuk masalah yang ingin diselesaikan. Mesin diharapkan meniru pola pada input data (prediktor) untuk menghasilkan output serupa.
 
 #### Tugas dalam Supervised Learning
-- **Klasifikasi**: Memprediksi hasil diskrit, misalnya apakah seseorang terkena penyakit jantung (ya/tidak).
-
-![Gambar2](https://github.com/user-attachments/assets/a5bb1c84-a9a4-484b-82de-368ecb27970e)
-
 - **Regresi**: Memprediksi hasil numerik, misalnya harga rumah atau jarak tempuh kendaraan.
 
-![Gambar3](https://github.com/user-attachments/assets/b7ae398a-4c67-4097-b821-e431b5d19bef)
+  ![Gambar3](https://github.com/user-attachments/assets/b7ae398a-4c67-4097-b821-e431b5d19bef)
+- **Klasifikasi**: Memprediksi hasil diskrit, misalnya apakah seseorang terkena penyakit jantung (ya/tidak).
 
+  ![Gambar2](https://github.com/user-attachments/assets/a5bb1c84-a9a4-484b-82de-368ecb27970e)
 
 ### 2. Unsupervised Learning
 Unsupervised learning bekerja pada **data tidak berlabel**. Algoritma ini bertugas mendeteksi pola, mengelompokkan data, dan belajar dari struktur yang ada tanpa arahan dari manusia.
 
-![Gambar4](https://github.com/user-attachments/assets/87ab1bd2-d9fb-435a-b0aa-2abfb81fd088)
-
+  ![Gambar4](https://github.com/user-attachments/assets/87ab1bd2-d9fb-435a-b0aa-2abfb81fd088)
 
 ---
 
@@ -51,8 +48,6 @@ Regresi linier digunakan untuk memprediksi variabel target (**Y**) berdasarkan h
 
 #### Rumus Regresi Linier
 ![Screenshot 2024-09-23 221730](https://github.com/user-attachments/assets/12cfe6a8-e3da-437e-8729-51c4ff8e4e02)
-
-
 #### Contoh Kode Implementasi Regresi Linier Sederhana
 ```python
 # Import libraries untuk visualisasi dan evaluasi
@@ -215,11 +210,3 @@ print("Classification Report:\n", class_report)
 
 - **Regresi Linier** memprediksi nilai numerik, sedangkan **Regresi Logistik** memprediksi probabilitas suatu kejadian.
 - **Regresi Logistik** lebih cocok untuk variabel dependen yang bersifat biner, sedangkan **Regresi Linier** digunakan untuk variabel dependen yang kontinu.
-
----
-
-## Classification
-
----
-
-## Clustering
