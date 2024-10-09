@@ -1,7 +1,3 @@
-Berikut adalah penjelasan yang lebih detail mengenai deteksi dan penanganan outlier dalam Exploratory Data Analysis (EDA), termasuk metode visualisasi, pendekatan statistik, dan strategi penanganan. Materi ini akan memberikan wawasan yang lebih dalam tentang konsep dan praktik yang diperlukan untuk mengidentifikasi serta menangani outlier secara komprehensif.
-
----
-
 ### **Apa itu Outlier?**
 
 Outlier adalah titik data yang menyimpang secara signifikan dari mayoritas data lain dalam suatu dataset. Nilai outlier dapat sangat tinggi atau sangat rendah dibandingkan dengan nilai-nilai lainnya. Outlier sering kali muncul akibat beberapa faktor berikut:
