@@ -231,14 +231,6 @@ Jika outlier muncul karena skala data yang besar, transformasi data bisa digunak
   df['nilai_log'] = np.log1p(df['nilai'])
   ```
 
-- **Reciprocal Transformation**: Mengambil kebalikan dari nilai outlier.
-
-  Contoh kode Python:
-
-  ```python
-  df['nilai_reciprocal'] = 1 / df['nilai']
-  ```
-
 - **Clipping**: Memotong nilai outlier agar berada dalam rentang tertentu.
 
   Contoh kode Python:
@@ -246,6 +238,18 @@ Jika outlier muncul karena skala data yang besar, transformasi data bisa digunak
   ```python
   df['nilai_clipped'] = np.clip(df['nilai'], lower_bound, upper_bound)
   ```
+Mengubah skala data melalui **transformasi** adalah salah satu cara yang efektif untuk **menangani outlier** karena transformasi skala dapat **mengurangi pengaruh nilai-nilai ekstrem** (outlier) yang ada dalam dataset. Berikut adalah alasan utama mengapa transformasi skala bisa membantu menangani outlier:
+
+### 1. **Mengurangi Rentang Nilai yang Terlalu Lebar**
+Outlier seringkali muncul karena adanya nilai yang jauh lebih besar (atau lebih kecil) dari mayoritas data dalam dataset. Ini dapat menyebabkan distribusi data menjadi **skewed** atau tidak normal, di mana sebagian besar data berada di satu sisi, sementara outlier berada jauh di sisi lain.
+
+Ketika kita menggunakan metode transformasi seperti **log transformation** atau **reciprocal transformation**, kita **mengompres rentang nilai** data. Transformasi ini membuat nilai-nilai yang sangat besar menjadi lebih kecil dan mendekati nilai lainnya dalam dataset. Ini berarti outlier tidak lagi menonjol atau mempengaruhi analisis secara berlebihan.
+
+#### Contoh Sederhana:
+Misalkan kita memiliki data berikut: [10, 12, 15, 20, 200].
+- **Tanpa transformasi**: Nilai **200** jauh lebih besar dari nilai lainnya, dan ini akan mendominasi statistik seperti mean, standar deviasi, dan membuat distribusi skewed.
+- **Setelah log transformation**: Nilai 200 akan berubah menjadi **\(\log(200) \approx 5.3\)**, mendekati nilai-nilai yang lain seperti \(\log(10) = 2.3\) dan \(\log(20) = 3\). Dengan demikian, pengaruh dari outlier berkurang karena skalanya menjadi lebih sebanding dengan data lainnya.
+
 
 #### **d. Algoritma yang Lebih Tahan Terhadap Outlier**
 
