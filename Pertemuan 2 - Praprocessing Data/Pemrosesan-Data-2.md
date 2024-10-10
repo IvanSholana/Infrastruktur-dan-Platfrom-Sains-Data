@@ -119,9 +119,9 @@ Z = \frac{(X - \mu)}{\sigma}
 $$
 
 Di mana:
-- $$\( X \)$$ adalah nilai data,
-- $$\( \mu \)$$ adalah rata-rata populasi, dan
-- $$\( \sigma \)$$ adalah deviasi standar populasi.
+- $$ X $$ adalah nilai data,
+- $$ \mu $$ adalah rata-rata populasi, dan
+- $$ \sigma $$ adalah deviasi standar populasi.
 
 Data dengan Z-Score lebih dari 3 atau kurang dari -3 biasanya dianggap sebagai outlier.
 
@@ -195,10 +195,10 @@ MAD = \text{median}(|X_i - \text{median}(X)|)
 $$
 
 Di mana:
-- $$\(X_i\)$$ adalah nilai data,
-- $$\(\text{median}(X)\)$$ adalah median dari dataset.
+- $$X_i$$ adalah nilai data,
+- $$\text{median}(X)$$ adalah median dari dataset.
 
-Jadi, pertama-tama kita menghitung median dari dataset. Kemudian, untuk setiap nilai data $$\(X_i\)$$, kita menghitung **deviasi absolut** (selisih antara nilai data dengan median). Terakhir, kita mengambil median dari deviasi absolut ini untuk mendapatkan MAD.
+Jadi, pertama-tama kita menghitung median dari dataset. Kemudian, untuk setiap nilai data $$X_i$$, kita menghitung **deviasi absolut** (selisih antara nilai data dengan median). Terakhir, kita mengambil median dari deviasi absolut ini untuk mendapatkan MAD.
 
 Baik, mari kita coba memberikan contoh yang lebih sederhana untuk memahami perbedaan **Modified Z-Score** dengan dan tanpa faktor **0.6745** menggunakan data yang lebih kecil, dan kita juga akan melihat bagaimana **deviasi standar** dan **MAD** bekerja.
 
