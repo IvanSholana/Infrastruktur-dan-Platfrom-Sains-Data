@@ -184,6 +184,22 @@ outliers_modified_z = df[df['modified_z_score'].abs() > 3.5]
 print(outliers_modified_z)
 ```
 
+### **Apa itu Median Absolute Deviation (MAD)?**
+
+**Median Absolute Deviation (MAD)** adalah ukuran statistik yang digunakan untuk mengukur penyebaran data, mirip dengan deviasi standar, tetapi lebih **robust** (tahan) terhadap outlier. MAD dihitung sebagai median dari deviasi absolut setiap titik data terhadap median data keseluruhan. Ini berarti MAD mengukur seberapa jauh setiap nilai menyimpang dari **median**, bukan dari **mean** seperti dalam kasus deviasi standar.
+
+Rumus MAD adalah sebagai berikut:
+
+$$
+MAD = \text{median}(|X_i - \text{median}(X)|)
+$$
+
+Di mana:
+- $$\(X_i\)$$ adalah nilai data,
+- $$\(\text{median}(X)\)$$ adalah median dari dataset.
+
+Jadi, pertama-tama kita menghitung median dari dataset. Kemudian, untuk setiap nilai data $$\(X_i\)$$, kita menghitung **deviasi absolut** (selisih antara nilai data dengan median). Terakhir, kita mengambil median dari deviasi absolut ini untuk mendapatkan MAD.
+
 ---
 
 ### **3. Penanganan Outlier**
