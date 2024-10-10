@@ -1,144 +1,273 @@
-### **Exploratory Data Analysis (EDA): Pengecekan Outlier secara Detail**
+### **Apa itu Outlier?**
 
-#### **Apa itu Outlier?**
+Outlier adalah titik data yang menyimpang secara signifikan dari mayoritas data lain dalam suatu dataset. Nilai outlier dapat sangat tinggi atau sangat rendah dibandingkan dengan nilai-nilai lainnya. Outlier sering kali muncul akibat beberapa faktor berikut:
 
-Outlier adalah titik data yang menyimpang secara signifikan dari mayoritas data lain dalam suatu dataset. Biasanya, outlier ini terlihat sebagai nilai yang sangat tinggi atau sangat rendah dibandingkan dengan nilai-nilai lainnya. Outlier dapat disebabkan oleh beberapa faktor yang mendasarinya, di antaranya:
+1. **Variasi Alami**: Dalam beberapa kasus, outlier mungkin muncul karena variasi alami dalam data. Misalnya, dalam pengukuran tinggi badan manusia, terdapat kemungkinan untuk melihat nilai yang sangat tinggi atau sangat rendah.
+   
+2. **Kesalahan Pengukuran**: Data outlier bisa muncul karena kesalahan dalam pengumpulan data, seperti kerusakan pada sensor atau alat pengukur.
 
-1. **Variasi Alami**: Dalam banyak kasus, outlier muncul karena variasi alami dalam data. Misalnya, pada populasi manusia, tinggi badan berkisar dari yang sangat pendek hingga sangat tinggi, dan nilai-nilai ekstrem ini bisa muncul sebagai outlier, meskipun mereka benar-benar mencerminkan variasi yang normal.
-2. **Kesalahan Pengukuran**: Kesalahan teknis dalam proses pengumpulan data bisa menyebabkan outlier. Contohnya, sensor yang tidak berfungsi dengan baik dapat mencatat suhu yang sangat rendah di lingkungan yang seharusnya panas.
-3. **Kesalahan Input**: Kesalahan manusia seperti salah ketik saat memasukkan data dapat menghasilkan nilai yang sangat besar atau kecil, sehingga nilai tersebut terlihat sebagai outlier dalam dataset.
+3. **Kesalahan Input**: Salah ketik atau kesalahan manusia dalam memasukkan data juga bisa menyebabkan outlier. Contohnya, jika seseorang secara tidak sengaja menambahkan nol ekstra saat memasukkan data transaksi, maka angka tersebut akan menjadi outlier.
 
-#### **Mengapa Pengecekan Outlier Penting?**
+4. **Peristiwa Langka**: Outlier dapat mewakili peristiwa yang jarang terjadi atau fenomena unik yang tidak teramati dalam kondisi normal. Misalnya, lonjakan penjualan yang tidak biasa selama acara promosi besar atau penipuan keuangan.
 
-Pentingnya mendeteksi dan menangani outlier sangat bervariasi tergantung pada tujuan analisis. Namun, berikut adalah tiga alasan utama mengapa kita harus memperhatikan outlier:
+---
+
+### **Mengapa Outlier Perlu Diperhatikan?**
+
+Mendeteksi dan menangani outlier adalah langkah penting dalam EDA karena:
 
 1. **Pengaruh pada Statistik Deskriptif**:
-   - **Rata-rata dan deviasi standar**: Rata-rata dan deviasi standar adalah dua ukuran statistik yang sangat dipengaruhi oleh outlier. Misalnya, jika sebagian besar data berkisar antara 10 hingga 20, tetapi terdapat satu nilai 100, rata-rata keseluruhan bisa meningkat secara tidak proporsional. Deviasi standar juga akan meningkat karena adanya perbedaan besar antara outlier dengan nilai lainnya.
-   - **Distribusi Data**: Outlier dapat mengubah pemahaman kita tentang distribusi data. Misalnya, distribusi yang seharusnya simetris bisa terlihat sangat miring (skewed) jika ada satu atau dua outlier.
-2. **Pengaruh pada Modeling**:
-   - **Overfitting**: Dalam pembelajaran mesin, outlier bisa membuat model terlalu fokus pada beberapa titik data yang menyimpang, menyebabkan **overfitting**, yaitu kondisi di mana model bekerja sangat baik pada data pelatihan, tetapi buruk pada data baru.
-   - **Underfitting**: Di sisi lain, model mungkin juga mengabaikan outlier atau tidak dapat menangani data dengan outlier, yang bisa menyebabkan **underfitting**, di mana model terlalu sederhana dan tidak mampu menangkap pola penting dalam data.
-   - **Estimasi Parameter**: Banyak algoritma pembelajaran mesin (seperti regresi linier) bergantung pada estimasi parameter seperti rata-rata dan varians. Jika outlier ada, parameter ini bisa salah dan menghasilkan model yang tidak akurat.
-3. **Keputusan Bisnis dan Kebijakan**:
-   - **Deteksi Anomali**: Dalam beberapa situasi, outlier dapat menjadi sinyal adanya anomali penting yang perlu dianalisis lebih lanjut. Misalnya, dalam data transaksi keuangan, outlier bisa menandakan aktivitas penipuan yang perlu diselidiki.
-   - **Pengambilan Keputusan yang Tepat**: Jika outlier dibiarkan tanpa analisis, keputusan yang diambil berdasarkan data tersebut bisa keliru. Misalnya, lonjakan penjualan yang tidak biasa mungkin memerlukan tindakan cepat untuk menyesuaikan inventaris atau strategi pemasaran.
+   - **Rata-rata (Mean)** dan **Deviasi Standar** sangat dipengaruhi oleh outlier. Jika satu nilai outlier sangat jauh dari data lainnya, rata-rata dapat meningkat atau menurun secara tidak proporsional. Deviasi standar yang menghitung penyebaran data juga akan terdistorsi.
+   - **Distribusi Data**: Kehadiran outlier dapat mengubah distribusi data, membuat distribusi yang seharusnya simetris menjadi miring (skewed).
 
-#### **Tahapan Pengecekan Outlier Secara Detail**
+2. **Pengaruh pada Model Pembelajaran Mesin**:
+   - **Overfitting**: Model dapat menjadi terlalu fokus pada outlier, yang dapat menyebabkan overfitting—model bekerja sangat baik pada data pelatihan, tetapi buruk pada data uji.
+   - **Underfitting**: Beberapa model mungkin tidak mampu menangkap pola yang baik karena terpengaruh oleh outlier.
+   - **Estimasi Parameter**: Dalam beberapa model pembelajaran mesin seperti regresi linier, kehadiran outlier dapat mengganggu estimasi parameter, yang dapat menghasilkan model yang tidak akurat.
 
-Berikut adalah langkah-langkah mendetail yang biasanya digunakan dalam mendeteksi outlier:
+3. **Keputusan Bisnis**:
+   - **Deteksi Anomali**: Dalam beberapa kasus, outlier dapat menjadi sinyal penting, seperti adanya penipuan atau masalah operasional yang perlu diselidiki lebih lanjut.
+   - **Keputusan Berdasarkan Data**: Tanpa memahami outlier, keputusan yang didasarkan pada data yang terdistorsi dapat menghasilkan kebijakan yang salah.
 
-1. **Visualisasi Data**:
+---
 
-   Visualisasi adalah salah satu cara paling intuitif untuk mendeteksi outlier. Dengan bantuan grafik, kita bisa dengan cepat melihat pola yang tidak biasa. Berikut adalah beberapa teknik visualisasi yang umum digunakan:
+### **Tahapan Pengecekan Outlier Secara Detail**
 
-   - **Box Plot (Plot Kotak)**: Box plot membagi data menjadi kuartil, dengan garis di tengah yang menunjukkan median. Outlier terlihat jelas sebagai titik-titik yang berada jauh di luar whiskers (ekstensi vertikal atau horizontal pada box plot). Whiskers biasanya menunjukkan 1,5 kali IQR (interquartile range), dan nilai di luar jangkauan ini dianggap sebagai outlier.
-   - **Scatter Plot (Plot Sebar)**: Scatter plot menampilkan hubungan antara dua variabel. Outlier dalam scatter plot terlihat sebagai titik yang jauh dari sekumpulan titik lainnya. Dalam scatter plot, kita juga bisa melihat apakah ada hubungan antara variabel dan bagaimana outlier memengaruhi hubungan tersebut.
-   - **Histogram**: Histogram menunjukkan distribusi data. Dalam histogram, outlier terlihat sebagai batang yang sangat jauh dari batang lainnya. Histogram sangat berguna untuk melihat distribusi umum dari variabel tunggal dan mengidentifikasi outlier yang berada di luar rentang distribusi normal.
+Untuk mendeteksi dan memahami outlier, ada beberapa tahapan yang bisa diikuti:
 
-   **Contoh kode Python untuk membuat visualisasi**:
+#### **1. Visualisasi Data untuk Mendeteksi Outlier**
 
-   ```python
-   import pandas as pd
-   import matplotlib.pyplot as plt
-   import seaborn as sns
+Visualisasi data merupakan salah satu cara paling efektif untuk mendeteksi outlier secara langsung. Beberapa teknik visualisasi yang umum digunakan untuk mendeteksi outlier meliputi:
 
-   # Membuat data contoh
-   data = {'nilai': [10, 12, 12, 13, 13, 14, 15, 16, 17, 20, 100]}  # 100 adalah outlier
-   df = pd.DataFrame(data)
+##### **a. Box Plot (Plot Kotak)**
 
-   # Box Plot
-   plt.figure(figsize=(10, 5))
-   sns.boxplot(x=df['nilai'])
-   plt.title('Box Plot')
-   plt.show()
+Box plot adalah visualisasi yang menggunakan kuartil untuk membagi data menjadi beberapa bagian dan menunjukkan sebaran data. Box plot juga menampilkan nilai-nilai outlier sebagai titik yang terletak di luar **whiskers**, yang biasanya menunjukkan 1,5 kali **Interquartile Range (IQR)** dari kuartil pertama (Q1) dan kuartil ketiga (Q3).
 
-   # Scatter Plot
-   plt.figure(figsize=(10, 5))
-   plt.scatter(range(len(df)), df['nilai'], color='blue')
-   plt.title('Scatter Plot')
-   plt.xlabel('Index')
-   plt.ylabel('Nilai')
-   plt.axhline(y=30, color='red', linestyle='--')  # Menandakan batas atas
-   plt.show()
-
-   # Histogram
-   plt.figure(figsize=(10, 5))
-   plt.hist(df['nilai'], bins=10, color='green', alpha=0.7)
-   plt.title('Histogram')
-   plt.xlabel('Nilai')
-   plt.ylabel('Frekuensi')
-   plt.show()
-   ```
-
-2. **Statistik Deskriptif untuk Mendeteksi Outlier**:
-
-   Selain visualisasi, statistik deskriptif juga dapat membantu mendeteksi outlier. Berikut adalah dua metode yang umum digunakan:
-
-   - **Z-Score**: Z-Score mengukur seberapa jauh sebuah titik data dari rata-rata dalam satuan deviasi standar. Z-Score dihitung sebagai:
-     \[
-     Z = \frac{(X - \mu)}{\sigma}
-     \]
-     Di mana:
-
-     - \(X\) adalah nilai data,
-     - \( \mu \) adalah rata-rata, dan
-     - \( \sigma \) adalah deviasi standar.
-
-     Data yang memiliki Z-Score lebih besar dari 3 atau kurang dari -3 biasanya dianggap sebagai outlier.
-
-   - **Interquartile Range (IQR)**: IQR mengukur rentang antara kuartil pertama (Q1) dan kuartil ketiga (Q3). Nilai-nilai yang berada di luar \( [Q1 - 1.5 \times IQR, Q3 + 1.5 \times IQR] \) dianggap sebagai outlier.
-
-   **Contoh kode Python untuk menghitung Z-Score dan IQR**:
-
-   ```python
-   from scipy import stats
-
-   # Menghitung Z-Score
-   df['z_score'] = stats.zscore(df['nilai'])
-   print("Outlier berdasarkan Z-Score:")
-   print(df[df['z_score'].abs() > 3])  # Menampilkan outlier berdasarkan Z-Score
-
-   # Menghitung IQR
-   Q1 = df['nilai'].quantile(0.25)
-   Q3 = df['nilai'].quantile(0.75)
-   IQR = Q3 - Q1
-
-   lower_bound = Q1 - 1.5 * IQR
-   upper_bound = Q3 + 1.5 * IQR
-
-   outliers_iqr = df[(df['nilai'] < lower_bound) | (df['nilai'] > upper_bound)]
-   print("Outlier berdasarkan IQR:")
-   print(outliers_iqr)  # Menampilkan outlier berdasarkan IQR
-   ```
-
-3. **Penanganan Outlier**:
-
-   Setelah mendeteksi outlier, langkah selanjutnya adalah memutuskan bagaimana menanganinya. Ada beberapa cara untuk menangani outlier, tergantung pada konteks dan tujuan analisis:
-
-   - **Analisis Penyebab**: Sebelum memutuskan apa yang harus dilakukan terhadap outlier, penting untuk memahami asal usulnya. Jika outlier disebabkan oleh kesalahan input atau pengukuran, mungkin bijaksana untuk menghapus atau memperbaikinya.
-
-   - **Transformasi Data**: Dalam beberapa kasus, transformasi data dapat mengurangi dampak outlier. Transformasi umum yang digunakan adalah:
-
-     - **Log Transformation**: Digunakan untuk mengurangi skala data dan mengurangi efek outlier yang besar.
-     - **Square Root Transformation**: Transformasi ini membantu mengurangi pengaruh outlier yang tidak terlalu ekstrim dibandingkan dengan transformasi log.
-
-   - **Penggunaan Model yang Tahan terhadap Outlier**: Beberapa algoritma pembelajaran mesin lebih tahan terhadap outlier, seperti pohon keputusan, random forest, dan robust regression. Algoritma ini tidak bergantung pada asumsi distribusi data yang ketat, sehingga dampak outlier lebih kecil.
-
-   **Contoh kode Python untuk transformasi data**
-
-:
+Contoh kode Python:
 
 ```python
-import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-# Transformasi menggunakan log
-df['nilai_log'] = np.log1p(df['nilai'])  # log1p untuk menangani nilai nol
 plt.figure(figsize=(10, 5))
-sns.boxplot(x=df['nilai_log'])
-plt.title('Box Plot setelah Transformasi Log')
+sns.boxplot(x=df['nilai'])
+plt.title('Box Plot')
 plt.show()
 ```
 
-#### **Kesimpulan**
+Outlier dalam box plot akan terlihat sebagai titik yang jauh di luar batas whiskers.
 
-Pengecekan dan penanganan outlier merupakan langkah penting dalam Exploratory Data Analysis (EDA). Outlier dapat memengaruhi statistik deskriptif, mengubah distribusi data, serta mempengaruhi performa model pembelajaran mesin. Oleh karena itu, dengan menggunakan teknik visualisasi dan metode statistik seperti Z-Score dan IQR, kita dapat mengidentifikasi outlier dengan lebih efektif. Setelah terdeteksi, outlier dapat dianalisis lebih lanjut untuk menentukan apakah perlu dihapus, diubah, atau ditangani melalui penggunaan model yang lebih tahan terhadap outlier.
+##### **b. Scatter Plot (Plot Sebar)**
+
+Scatter plot sangat berguna untuk mendeteksi outlier ketika melihat hubungan antara dua variabel. Titik-titik data yang jauh dari pola hubungan yang jelas antara variabel dapat dianggap sebagai outlier.
+
+Contoh kode Python:
+
+```python
+plt.figure(figsize=(10, 5))
+plt.scatter(range(len(df)), df['nilai'], color='blue')
+plt.axhline(y=30, color='red', linestyle='--')  # Batas atas
+plt.title('Scatter Plot')
+plt.xlabel('Index')
+plt.ylabel('Nilai')
+plt.show()
+```
+
+Outlier akan muncul sebagai titik yang jauh dari sekumpulan titik lainnya.
+
+##### **c. Histogram**
+
+Histogram menunjukkan distribusi frekuensi data. Outlier terlihat sebagai batang (bar) yang berada jauh dari batang lain pada histogram, biasanya di ujung distribusi.
+
+Contoh kode Python:
+
+```python
+plt.figure(figsize=(10, 5))
+plt.hist(df['nilai'], bins=10, color='green', alpha=0.7)
+plt.title('Histogram')
+plt.xlabel('Nilai')
+plt.ylabel('Frekuensi')
+plt.show()
+```
+
+Histogram sangat berguna untuk melihat distribusi data yang luas dan memberikan petunjuk jika ada nilai yang jauh di luar rentang umum.
+
+##### **d. Density Plot (Plot Densitas)**
+
+Density plot adalah versi smooth dari histogram dan sangat berguna untuk melihat distribusi probabilitas. Outlier akan terlihat sebagai ekor distribusi yang panjang atau titik yang berada di daerah densitas yang sangat rendah.
+
+Contoh kode Python:
+
+```python
+sns.kdeplot(df['nilai'], shade=True)
+plt.title('Density Plot')
+plt.show()
+```
+
+---
+
+#### **2. Statistik Deskriptif untuk Mendeteksi Outlier**
+
+Selain visualisasi, statistik deskriptif sering kali digunakan untuk mendeteksi outlier. Metode statistik yang paling umum digunakan meliputi:
+
+##### **a. Z-Score**
+
+**Z-Score** mengukur seberapa jauh nilai data dari rata-rata dalam satuan deviasi standar. Z-Score dihitung menggunakan rumus berikut:
+
+\[
+Z = \frac{(X - \mu)}{\sigma}
+\]
+
+Di mana:
+- \( X \) adalah nilai data,
+- \( \mu \) adalah rata-rata populasi, dan
+- \( \sigma \) adalah deviasi standar populasi.
+
+Data dengan Z-Score lebih dari 3 atau kurang dari -3 biasanya dianggap sebagai outlier.
+
+Contoh kode Python:
+
+```python
+from scipy import stats
+
+df['z_score'] = stats.zscore(df['nilai'])
+outliers_zscore = df[df['z_score'].abs() > 3]
+print(outliers_zscore)
+```
+
+##### **b. Interquartile Range (IQR)**
+
+**Interquartile Range (IQR)** adalah ukuran penyebaran statistik yang dihitung dengan mengurangi kuartil pertama dari kuartil ketiga:
+
+\[
+IQR = Q3 - Q1
+\]
+
+Nilai di luar \( [Q1 - 1.5 \times IQR, Q3 + 1.5 \times IQR] \) dianggap sebagai outlier.
+
+Contoh kode Python:
+
+```python
+Q1 = df['nilai'].quantile(0.25)
+Q3 = df['nilai'].quantile(0.75)
+IQR = Q3 - Q1
+
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+
+outliers_iqr = df[(df['nilai'] < lower_bound) | (df['nilai'] > upper_bound)]
+print(outliers_iqr)
+```
+
+##### **c. Modified Z-Score**
+
+Modified Z-Score adalah variasi dari Z-Score yang lebih tahan terhadap outlier. Metode ini menggunakan **median** dan **Median Absolute Deviation (MAD)**, yang lebih robust dibandingkan rata-rata dan deviasi standar.
+
+Rumus Modified Z-Score adalah:
+
+\[
+Z_{mod} = \frac{0.6745 \times (X - \text{Median})}{MAD}
+\]
+
+Data dengan Modified Z-Score lebih dari 3.5 biasanya dianggap sebagai outlier.
+
+Contoh kode Python:
+
+```python
+def modified_z_score(data):
+    median = np.median(data)
+    mad = np.median(np.abs(data - median))
+    return 0.6745 * (data - median) / mad
+
+df['modified_z_score'] = modified_z_score(df['nilai'])
+outliers_modified_z = df[df['modified_z_score'].abs() > 3.5]
+print(outliers_modified_z)
+```
+
+---
+
+### **3. Penanganan Outlier**
+
+Setelah mendeteksi outlier, langkah selanjutnya adalah memutuskan bagaimana menanganinya. Ada beberapa strategi untuk menangani outlier, bergantung pada tujuan analisis.
+
+#### **a. Menghapus Outlier**
+
+Penghapusan outlier bisa menjadi pilihan jika data tersebut disebabkan oleh kesalahan input atau pengukuran, dan tidak relevan untuk analisis. Namun, penghapusan harus dilakukan dengan hati-hati agar tidak menghilangkan data yang valid dan penting.
+
+#### **b. Imputasi Outlier**
+
+Alih-alih menghapus outlier, kita bisa mengimputasi atau mengganti outlier dengan nilai yang lebih sesuai berdasarkan distribusi data.
+
+- **Winsorizing**: Mengganti outlier dengan nilai batas atas atau
+
+ bawah yang lebih masuk akal.
+
+  Contoh kode Python:
+
+  ```python
+  from scipy.stats.mstats import winsorize
+  df['nilai_winsorized'] = winsorize(df['nilai'], limits=[0.05, 0.05])
+  ```
+
+- **Imputasi Median**: Mengganti outlier dengan nilai median.
+
+  Contoh kode Python:
+
+  ```python
+  median = df['nilai'].median()
+  df.loc[df['nilai'] > upper_bound, 'nilai'] = median
+  df.loc[df['nilai'] < lower_bound, 'nilai'] = median
+  ```
+
+#### **c. Transformasi Data**
+
+Jika outlier muncul karena skala data yang besar, transformasi data bisa digunakan untuk mengurangi pengaruh outlier.
+
+- **Log Transformation**: Digunakan untuk mengurangi rentang nilai outlier yang sangat besar.
+
+  Contoh kode Python:
+
+  ```python
+  df['nilai_log'] = np.log1p(df['nilai'])
+  ```
+
+- **Reciprocal Transformation**: Mengambil kebalikan dari nilai outlier.
+
+  Contoh kode Python:
+
+  ```python
+  df['nilai_reciprocal'] = 1 / df['nilai']
+  ```
+
+- **Clipping**: Memotong nilai outlier agar berada dalam rentang tertentu.
+
+  Contoh kode Python:
+
+  ```python
+  df['nilai_clipped'] = np.clip(df['nilai'], lower_bound, upper_bound)
+  ```
+
+#### **d. Algoritma yang Lebih Tahan Terhadap Outlier**
+
+Jika Anda membangun model pembelajaran mesin, beberapa algoritma lebih tahan terhadap outlier:
+
+- **Decision Trees**: Algoritma ini tidak terlalu dipengaruhi oleh outlier karena mereka mempartisi data berdasarkan nilai-nilai tertentu.
+  
+- **Random Forest dan Gradient Boosting**: Kedua algoritma ini juga lebih robust terhadap outlier dibandingkan algoritma lain seperti regresi linier.
+
+- **Robust Regression**: Teknik regresi yang lebih kuat seperti **Huber Regression** atau **RANSAC (Random Sample Consensus)** dapat digunakan untuk mengatasi outlier.
+
+  Contoh kode Python untuk RANSAC:
+
+  ```python
+  from sklearn.linear_model import RANSACRegressor
+
+  ransac = RANSACRegressor()
+  ransac.fit(X, y)
+  ```
+
+---
+
+### **Kesimpulan**
+
+Pendeteksian dan penanganan outlier merupakan langkah penting dalam EDA dan modeling data. Outlier dapat sangat memengaruhi statistik deskriptif, distribusi data, dan kinerja model pembelajaran mesin. Dengan menggunakan metode visualisasi dan pendekatan statistik seperti Z-Score, IQR, dan Modified Z-Score, kita dapat mengidentifikasi outlier dengan lebih efektif. Penanganan outlier, seperti menghapus, mengimputasi, atau melakukan transformasi data, harus dilakukan dengan hati-hati agar hasil analisis lebih akurat dan relevan dengan tujuan bisnis.
