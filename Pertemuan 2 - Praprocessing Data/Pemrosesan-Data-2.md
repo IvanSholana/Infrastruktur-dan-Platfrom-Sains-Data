@@ -200,6 +200,85 @@ Di mana:
 
 Jadi, pertama-tama kita menghitung median dari dataset. Kemudian, untuk setiap nilai data $$\(X_i\)$$, kita menghitung **deviasi absolut** (selisih antara nilai data dengan median). Terakhir, kita mengambil median dari deviasi absolut ini untuk mendapatkan MAD.
 
+Baik, mari kita coba memberikan contoh yang lebih sederhana untuk memahami perbedaan **Modified Z-Score** dengan dan tanpa faktor **0.6745** menggunakan data yang lebih kecil, dan kita juga akan melihat bagaimana **deviasi standar** dan **MAD** bekerja.
+
+### **Contoh Sederhana:**
+
+Misalkan kita memiliki dataset yang sangat kecil:  
+$$ 10, 12, 14, 16, 100 $$
+
+Di sini, nilai **100** jelas merupakan outlier.
+
+### **Langkah 1: Menghitung Z-Score (menggunakan standar deviasi)**
+Rumus Z-Score:
+
+$$
+Z = \frac{X - \mu}{\sigma}
+$$
+
+1. **Menghitung rata-rata (\(\mu\))**:  
+$$
+\mu = \frac{10 + 12 + 14 + 16 + 100}{5} = 30.4
+$$
+
+2. **Menghitung standar deviasi (\(\sigma\))**:  
+$$
+\sigma = \sqrt{\frac{(10 - 30.4)^2 + (12 - 30.4)^2 + (14 - 30.4)^2 + (16 - 30.4)^2 + (100 - 30.4)^2}{5}} \approx 36.47
+$$
+
+3. **Menghitung Z-Score untuk nilai 100**:  
+$$
+Z = \frac{100 - 30.4}{36.47} \approx 1.91
+$$
+
+### **Langkah 2: Menghitung Modified Z-Score (menggunakan median dan MAD)**
+Rumus Modified Z-Score:
+
+$$
+Z_{\text{mod}} = \frac{0.6745 \times (X - \text{Median})}{MAD}
+$$
+
+1. **Menghitung median**:  
+$$
+\text{Median} = 14 \quad \text{(nilai tengah dari dataset: [10, 12, 14, 16, 100])}
+$$
+
+2. **Menghitung MAD (Median Absolute Deviation)**:  
+$$
+\text{Deviasi Absolut} = |10 - 14|, |12 - 14|, |14 - 14|, |16 - 14|, |100 - 14| = 4, 2, 0, 2, 86
+$$  
+Median dari deviasi absolut ini adalah **2** (nilai tengah).
+
+3. **Menghitung Modified Z-Score untuk nilai 100 (dengan 0.6745)**:  
+$$
+Z_{\text{mod}} = \frac{0.6745 \times (100 - 14)}{2} = \frac{0.6745 \times 86}{2} \approx 28.99
+$$
+
+4. **Menghitung Modified Z-Score untuk nilai 100 (tanpa 0.6745)**:  
+$$
+Z_{\text{mod}} = \frac{(100 - 14)}{2} = \frac{86}{2} = 43
+$$
+
+---
+
+### **Perbandingan Hasil:**
+
+- **Z-Score (menggunakan standar deviasi)**:  
+  - Z-Score untuk nilai **100** = **1.91**
+
+- **Modified Z-Score (dengan 0.6745)**:  
+  - Modified Z-Score untuk nilai **100** = **28.99**
+
+- **Modified Z-Score (tanpa 0.6745)**:  
+  - Modified Z-Score untuk nilai **100** = **43**
+
+### **Penjelasan:**
+- **Z-Score** memberikan hasil yang relatif kecil (**1.91**) karena standar deviasi (\(\sigma = 36.47\)) sangat dipengaruhi oleh nilai outlier (**100**).
+- **Modified Z-Score** dengan **0.6745** memberikan hasil yang lebih besar (**28.99**), tetapi lebih bisa dibandingkan dengan Z-Score karena sudah terkalibrasi untuk distribusi normal.
+- **Modified Z-Score tanpa 0.6745** memberikan hasil yang jauh lebih besar (**43**), karena kita tidak menyesuaikan MAD dengan skala yang sesuai.
+
+Nilai **0.6745** diperlukan untuk membuat **Modified Z-Score** sebanding dengan hasil dari Z-Score, sehingga lebih mudah untuk mendeteksi outlier dan melakukan analisis yang konsisten.
+
 ---
 
 ### **3. Penanganan Outlier**
