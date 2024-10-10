@@ -114,14 +114,14 @@ Selain visualisasi, statistik deskriptif sering kali digunakan untuk mendeteksi 
 
 **Z-Score** mengukur seberapa jauh nilai data dari rata-rata dalam satuan deviasi standar. Z-Score dihitung menggunakan rumus berikut:
 
-\[
+$$
 Z = \frac{(X - \mu)}{\sigma}
-\]
+$$
 
 Di mana:
-- \( X \) adalah nilai data,
-- \( \mu \) adalah rata-rata populasi, dan
-- \( \sigma \) adalah deviasi standar populasi.
+- $$\( X \)$$ adalah nilai data,
+- $$\( \mu \)$$ adalah rata-rata populasi, dan
+- $$\( \sigma \)$$ adalah deviasi standar populasi.
 
 Data dengan Z-Score lebih dari 3 atau kurang dari -3 biasanya dianggap sebagai outlier.
 
@@ -139,11 +139,11 @@ print(outliers_zscore)
 
 **Interquartile Range (IQR)** adalah ukuran penyebaran statistik yang dihitung dengan mengurangi kuartil pertama dari kuartil ketiga:
 
-\[
+$$
 IQR = Q3 - Q1
-\]
+$$
 
-Nilai di luar \( [Q1 - 1.5 \times IQR, Q3 + 1.5 \times IQR] \) dianggap sebagai outlier.
+Nilai di luar $$\( [Q1 - 1.5 \times IQR, Q3 + 1.5 \times IQR] \)$$ dianggap sebagai outlier.
 
 Contoh kode Python:
 
@@ -165,9 +165,9 @@ Modified Z-Score adalah variasi dari Z-Score yang lebih tahan terhadap outlier. 
 
 Rumus Modified Z-Score adalah:
 
-\[
+$$
 Z_{mod} = \frac{0.6745 \times (X - \text{Median})}{MAD}
-\]
+$$
 
 Data dengan Modified Z-Score lebih dari 3.5 biasanya dianggap sebagai outlier.
 
