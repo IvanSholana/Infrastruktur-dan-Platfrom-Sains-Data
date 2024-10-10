@@ -118,10 +118,10 @@ $$
 Z = \frac{(X - \mu)}{\sigma}
 $$
 
-Di mana:
-- $$ X $$ adalah nilai data,
-- $$ \mu $$ adalah rata-rata populasi, dan
-- $$ \sigma $$ adalah deviasi standar populasi.
+Dimana:
+- $$\(X\)$$ adalah nilai data,
+- $$\(\mu\)$$ adalah rata-rata populasi, dan
+- $$\(\sigma\)$$ adalah deviasi standar populasi.
 
 Data dengan Z-Score lebih dari 3 atau kurang dari -3 biasanya dianggap sebagai outlier.
 
@@ -195,8 +195,8 @@ MAD = \text{median}(|X_i - \text{median}(X)|)
 $$
 
 Di mana:
-- $$X_i$$ adalah nilai data,
-- $$\text{median}(X)$$ adalah median dari dataset.
+- $$\(X\_i\)$$ adalah nilai data,
+- $$\(text{median}(X)\)$$ adalah median dari dataset.
 
 Jadi, pertama-tama kita menghitung median dari dataset. Kemudian, untuk setiap nilai data $$X_i$$, kita menghitung **deviasi absolut** (selisih antara nilai data dengan median). Terakhir, kita mengambil median dari deviasi absolut ini untuk mendapatkan MAD.
 
@@ -205,32 +205,34 @@ Baik, mari kita coba memberikan contoh yang lebih sederhana untuk memahami perbe
 ### **Contoh Sederhana:**
 
 Misalkan kita memiliki dataset yang sangat kecil:  
-$$ 10, 12, 14, 16, 100 $$
+10, 12, 14, 16, 100 
 
 Di sini, nilai **100** jelas merupakan outlier.
 
 ### **Langkah 1: Menghitung Z-Score (menggunakan standar deviasi)**
 Rumus Z-Score:
 
-$$
-Z = \frac{X - \mu}{\sigma}
-$$
+Berikut adalah perhitungan yang disajikan dalam format yang lebih rapi:
 
-1. **Menghitung rata-rata (\(\mu\))**:  
+1. **Menghitung rata-rata (\(\mu\)):**
+
 $$
 \mu = \frac{10 + 12 + 14 + 16 + 100}{5} = 30.4
 $$
 
-2. **Menghitung standar deviasi (\(\sigma\))**:  
+2. **Menghitung standar deviasi (\(\sigma\)):**
+
 $$
 \sigma = \sqrt{\frac{(10 - 30.4)^2 + (12 - 30.4)^2 + (14 - 30.4)^2 + (16 - 30.4)^2 + (100 - 30.4)^2}{5}} \approx 36.47
 $$
 
-3. **Menghitung Z-Score untuk nilai 100**:  
+3. **Menghitung Z-Score untuk nilai 100:**
+
 $$
 Z = \frac{100 - 30.4}{36.47} \approx 1.91
 $$
 
+Ini menunjukkan bagaimana nilai 100 berada sekitar 1.91 standar deviasi di atas rata-rata.
 ### **Langkah 2: Menghitung Modified Z-Score (menggunakan median dan MAD)**
 Rumus Modified Z-Score:
 
@@ -238,26 +240,35 @@ $$
 Z_{\text{mod}} = \frac{0.6745 \times (X - \text{Median})}{MAD}
 $$
 
-1. **Menghitung median**:  
+Berikut adalah penulisan ulang perhitungan yang lebih terstruktur:
+
+1. **Menghitung median:**
+
 $$
 \text{Median} = 14 \quad \text{(nilai tengah dari dataset: [10, 12, 14, 16, 100])}
 $$
 
-2. **Menghitung MAD (Median Absolute Deviation)**:  
+2. **Menghitung Median Absolute Deviation (MAD):**
+
 $$
 \text{Deviasi Absolut} = |10 - 14|, |12 - 14|, |14 - 14|, |16 - 14|, |100 - 14| = 4, 2, 0, 2, 86
-$$  
-Median dari deviasi absolut ini adalah **2** (nilai tengah).
+$$
 
-3. **Menghitung Modified Z-Score untuk nilai 100 (dengan 0.6745)**:  
+Median dari deviasi absolut ini adalah 2 (nilai tengah dari [4, 2, 0, 2, 86] setelah diurutkan).
+
+3. **Menghitung Modified Z-Score untuk nilai 100 (dengan faktor 0.6745):**
+
 $$
 Z_{\text{mod}} = \frac{0.6745 \times (100 - 14)}{2} = \frac{0.6745 \times 86}{2} \approx 28.99
 $$
 
-4. **Menghitung Modified Z-Score untuk nilai 100 (tanpa 0.6745)**:  
+4. **Menghitung Modified Z-Score untuk nilai 100 (tanpa faktor 0.6745):**
+
 $$
 Z_{\text{mod}} = \frac{(100 - 14)}{2} = \frac{86}{2} = 43
 $$
+
+Perhitungan ini menunjukkan bahwa nilai 100 memiliki Modified Z-Score yang sangat tinggi, yang mengindikasikan bahwa 100 adalah outlier yang signifikan dalam dataset ini.
 
 ---
 
@@ -343,7 +354,7 @@ Ketika kita menggunakan metode transformasi seperti **log transformation** atau 
 #### Contoh Sederhana:
 Misalkan kita memiliki data berikut: [10, 12, 15, 20, 200].
 - **Tanpa transformasi**: Nilai **200** jauh lebih besar dari nilai lainnya, dan ini akan mendominasi statistik seperti mean, standar deviasi, dan membuat distribusi skewed.
-- **Setelah log transformation**: Nilai 200 akan berubah menjadi **\(\log(200) \approx 5.3\)**, mendekati nilai-nilai yang lain seperti \(\log(10) = 2.3\) dan \(\log(20) = 3\). Dengan demikian, pengaruh dari outlier berkurang karena skalanya menjadi lebih sebanding dengan data lainnya.
+- **Setelah log transformation**: Nilai 200 akan berubah menjadi **\(\log(200) \approx 5.3\)**, mendekati nilai-nilai yang lain seperti $$\(\log(10) = 2.3\)$$ dan $$\(\log(20) = 3\)$$. Dengan demikian, pengaruh dari outlier berkurang karena skalanya menjadi lebih sebanding dengan data lainnya.
 
 
 #### **d. Algoritma yang Lebih Tahan Terhadap Outlier**
