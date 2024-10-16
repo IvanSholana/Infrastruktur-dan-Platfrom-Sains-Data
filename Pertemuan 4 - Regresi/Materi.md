@@ -35,8 +35,6 @@ Unsupervised learning bekerja pada **data tidak berlabel**. Algoritma ini bertug
 Regresi adalah teknik yang digunakan untuk memodelkan hubungan antara variabel independen (**input**) dan variabel dependen (**output**), dengan tujuan memprediksi nilai **kontinu**.
 
 ### Metrik Evaluasi dalam Regresi
-- **Koefisien (slope)**: Menunjukkan pengaruh setiap variabel independen terhadap variabel dependen.
-- **Intercept**: Nilai prediksi ketika semua variabel independen bernilai 0.
 - **MSE, RMSE, MAE**: Metrik kesalahan model prediksi.
 - **R²**: Mengukur seberapa baik model menjelaskan variasi data.
 
