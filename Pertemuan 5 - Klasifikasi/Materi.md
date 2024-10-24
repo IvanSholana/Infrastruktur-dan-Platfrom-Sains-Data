@@ -66,36 +66,36 @@ Naive Bayes didasarkan pada **Teorema Bayes**, yang menghitung probabilitas suat
 
 Teorema Bayes menyatakan:
 
-$$
+\[
 P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
-$$
+\]
 
 Dimana:
-- $$P(A|B)$$ adalah probabilitas terjadinya kejadian A, diberikan bahwa B terjadi (probabilitas posterior).
-- $$P(B|A)$$ adalah probabilitas terjadinya kejadian B, diberikan bahwa A terjadi (likelihood).
-- $$P(A)$$ adalah probabilitas terjadinya kejadian A (probabilitas prior).
-- $$P(B)$$ adalah probabilitas terjadinya kejadian B (probabilitas evidence).
+- \( P(A|B) \) adalah probabilitas terjadinya kejadian A, diberikan bahwa B terjadi (probabilitas posterior).
+- \( P(B|A) \) adalah probabilitas terjadinya kejadian B, diberikan bahwa A terjadi (likelihood).
+- \( P(A) \) adalah probabilitas terjadinya kejadian A (probabilitas prior).
+- \( P(B) \) adalah probabilitas terjadinya kejadian B (probabilitas evidence).
 
-Dalam konteks **klasifikasi**, kita mencoba menghitung probabilitas suatu kelas $$C$$ terjadi berdasarkan beberapa fitur atau atribut $$X_1, X_2, ..., X_n$$ yang kita miliki.
+Dalam konteks **klasifikasi**, kita mencoba menghitung probabilitas suatu kelas \( C \) terjadi berdasarkan beberapa fitur atau atribut \( X_1, X_2, ..., X_n \) yang kita miliki.
 
 ---
 
 ### **Konsep Naive Bayes dalam Klasifikasi**
 
-Pada klasifikasi menggunakan Naive Bayes, kita ingin menentukan probabilitas sebuah data $$ X = (X_1, X_2, ..., X_n) $$ termasuk dalam suatu kelas $$ C $$. Untuk melakukan ini, kita menghitung probabilitas bersyarat $$ P(C|X) $$, yaitu probabilitas kelas $$ C $$ terjadi mengingat data $$ X $$.
+Pada klasifikasi menggunakan Naive Bayes, kita ingin menentukan probabilitas sebuah data \( X = (X_1, X_2, ..., X_n) \) termasuk dalam suatu kelas \( C \). Untuk melakukan ini, kita menghitung probabilitas bersyarat \( P(C|X) \), yaitu probabilitas kelas \( C \) terjadi mengingat data \( X \).
 
-Menggunakan Teorema Bayes, kita dapat menghitung probabilitas posterior $$ P(C|X) $$ sebagai berikut:
+Menggunakan Teorema Bayes, kita dapat menghitung probabilitas posterior \( P(C|X) \) sebagai berikut:
 
 \[
 P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
 \]
 
-- **$$ P(C|X) $$**: Probabilitas bahwa kelas $$ C $$ terjadi, diberikan fitur $$ X $$ (posterior).
-- **$$ P(X|C) $$**: Probabilitas fitur $$ X $$ terjadi, diberikan kelas $$ C $$ (likelihood).
-- **$$ P(C) $$**: Probabilitas kelas $$ C $$ terjadi tanpa mempertimbangkan fitur (probabilitas prior).
-- **$$ P(X) $$**: Probabilitas keseluruhan dari fitur $$ X $$ (probabilitas evidence).
+- **\( P(C|X) \)**: Probabilitas bahwa kelas \( C \) terjadi, diberikan fitur \( X \) (posterior).
+- **\( P(X|C) \)**: Probabilitas fitur \( X \) terjadi, diberikan kelas \( C \) (likelihood).
+- **\( P(C) \)**: Probabilitas kelas \( C \) terjadi tanpa mempertimbangkan fitur (probabilitas prior).
+- **\( P(X) \)**: Probabilitas keseluruhan dari fitur \( X \) (probabilitas evidence).
 
-Karena kita hanya tertarik pada perbandingan antara kelas $$ C $$ yang berbeda, kita bisa mengabaikan $$ P(X) $$ karena sama untuk semua kelas. Jadi, rumusnya menjadi:
+Karena kita hanya tertarik pada perbandingan antara kelas \( C \) yang berbeda, kita bisa mengabaikan \( P(X) \) karena sama untuk semua kelas. Jadi, rumusnya menjadi:
 
 \[
 P(C|X) \propto P(X|C) \cdot P(C)
@@ -105,9 +105,9 @@ P(C|X) \propto P(X|C) \cdot P(C)
 
 ### **Asumsi "Naive" pada Naive Bayes**
 
-Naive Bayes membuat asumsi bahwa semua fitur $$ X_1, X_2, ..., X_n $$ **saling independen** satu sama lain, artinya kejadian satu fitur tidak mempengaruhi fitur lainnya. Ini adalah asumsi yang sangat sederhana dan seringkali tidak benar dalam praktik, tetapi tetap memberikan hasil yang bagus dalam banyak kasus.
+Naive Bayes membuat asumsi bahwa semua fitur \( X_1, X_2, ..., X_n \) **saling independen** satu sama lain, artinya kejadian satu fitur tidak mempengaruhi fitur lainnya. Ini adalah asumsi yang sangat sederhana dan seringkali tidak benar dalam praktik, tetapi tetap memberikan hasil yang bagus dalam banyak kasus.
 
-Dengan asumsi ini, kita bisa menghitung $$ P(X|C) $$ sebagai:
+Dengan asumsi ini, kita bisa menghitung \( P(X|C) \) sebagai:
 
 \[
 P(X|C) = P(X_1|C) \cdot P(X_2|C) \cdot ... \cdot P(X_n|C)
