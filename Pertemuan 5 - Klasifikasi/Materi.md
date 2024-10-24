@@ -66,9 +66,11 @@ Naive Bayes didasarkan pada **Teorema Bayes**, yang menghitung probabilitas suat
 
 Teorema Bayes menyatakan:
 
+$$
 \[
 P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}
 \]
+$$
 
 Dimana:
 - \( P(A|B) \) adalah probabilitas terjadinya kejadian A, diberikan bahwa B terjadi (probabilitas posterior).
