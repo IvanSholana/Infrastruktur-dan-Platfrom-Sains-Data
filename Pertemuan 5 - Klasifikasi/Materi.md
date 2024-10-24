@@ -94,6 +94,14 @@ knn.fit(X_train, y_train)
 # Lakukan prediksi pada data testing
 y_pred = knn.predict(X_test)
 
+plt.figure(figsize=(10, 7))
+plt.scatter(X_test[:, 0], X_test[:, 1], c=y_pred, cmap='viridis', marker='o', edgecolor='k', s=100)
+plt.xlabel(data.feature_names[0])
+plt.ylabel(data.feature_names[1])
+plt.title('KNN Classification Results')
+plt.show()
+
+
 # Evaluasi akurasi model
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Akurasi KNN: {accuracy * 100:.2f}%")
