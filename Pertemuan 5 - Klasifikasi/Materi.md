@@ -99,9 +99,9 @@ P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
 
 Karena kita hanya tertarik pada perbandingan antara kelas $$\( C \$$) yang berbeda, kita bisa mengabaikan $$\( P(X) \$$) karena sama untuk semua kelas. Jadi, rumusnya menjadi:
 
-\[
+$$\
 P(C|X) \propto P(X|C) \cdot P(C)
-\]
+\$$
 
 ---
 
@@ -111,6 +111,6 @@ Naive Bayes membuat asumsi bahwa semua fitur $$\( X_1, X_2, ..., X_n \$$) **sali
 
 Dengan asumsi ini, kita bisa menghitung $$\( P(X|C) \) sebagai:
 
-\[
+$$\
 P(X|C) = P(X_1|C) \cdot P(X_2|C) \cdot ... \cdot P(X_n|C)
-\]
+\$$
