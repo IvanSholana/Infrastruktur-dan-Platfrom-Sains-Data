@@ -88,9 +88,9 @@ Pada klasifikasi menggunakan Naive Bayes, kita ingin menentukan probabilitas seb
 
 Menggunakan Teorema Bayes, kita dapat menghitung probabilitas posterior $$\( P(C|X) \$$) sebagai berikut:
 
-\[
+$$\
 P(C|X) = \frac{P(X|C) \cdot P(C)}{P(X)}
-\]
+\$$
 
 - **$$\( P(C|X) \$$)**: Probabilitas bahwa kelas $$\( C \$$) terjadi, diberikan fitur $$\( X \$$) (posterior).
 - **$$\( P(X|C) \$$)**: Probabilitas fitur $$\( X \$$) terjadi, diberikan kelas $$\( C \$$) (likelihood).
