@@ -114,3 +114,33 @@ Dengan asumsi ini, kita bisa menghitung $$\( P(X|C) \) sebagai:
 $$\
 P(X|C) = P(X_1|C) \cdot P(X_2|C) \cdot ... \cdot P(X_n|C)
 \$$
+
+# Langkah-langkah Naive Bayes
+
+1. **Hitung probabilitas kemunculan setiap fitur**
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
+2. **Coba Prediksi Data**
+
+![alt text](image-8.png)
+
+3. **Hitung probabilitas kemunculan setiap label**
+
+![alt text](image-9.png)
+
+4. **Hitung probabilitas setiap fitur yang muncul pada setiap label**
+
+![alt text](image-10.png)
+
+![alt text](image-11.png)
+
+![alt text](image-12.png)
+
+5. **Bandingkan Hasilnya**
+
+![alt text](image-13.png)
