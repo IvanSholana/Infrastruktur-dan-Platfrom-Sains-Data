@@ -47,7 +47,7 @@ Proses analisis data ini akan mengikuti tahapan dalam **Data Science Life Cycle*
    - Pembagian data menjadi `training set` dan `test set` untuk membangun model dan mengevaluasi performanya pada data yang tidak terlihat.
 
 ### 5. Pemodelan (Modeling)
-   - Membangun model klasifikasi seperti Logistic Regression, Decision Tree, atau Random Forest.
+   - Membangun model klasifikasi seperti KNN, Naive Bayes, & SVM.
    - Melatih model pada `training set`.
    - Memprediksi status pinjaman pada `test set`.
 
