@@ -54,8 +54,6 @@ K-means adalah algoritma klasterisasi berbasis partisi yang mencoba membagi data
 
 ### Implementasi K-means
 
-Berikut adalah implementasi sederhana K-means dalam Python menggunakan `sklearn`:
-
 ```python
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
@@ -79,6 +77,52 @@ plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=300,
 plt.title("K-means Clustering")
 plt.show()
 ```
+
+Untuk menentukan jumlah klaster \( K \) yang optimal dalam algoritma K-means, salah satu metode yang populer adalah **Elbow Method**. Metode ini bekerja dengan menghitung **inertia** (jumlah kuadrat jarak data dalam klaster ke centroid) untuk berbagai nilai \( K \), kemudian memilih nilai \( K \) pada titik “siku” (elbow), yaitu titik di mana penurunan inertia mulai melambat. Titik elbow menunjukkan jumlah klaster optimal, karena menambahkan klaster baru setelah titik ini hanya memberikan sedikit peningkatan dalam pengelompokan data.
+
+### Langkah-langkah Elbow Method:
+1. Jalankan algoritma K-means untuk berbagai nilai \( K \) (misalnya dari 1 hingga 10).
+2. Hitung inertia untuk setiap nilai \( K \).
+3. Plot nilai inertia sebagai fungsi dari \( K \).
+4. Pilih nilai \( K \) di mana terdapat penurunan inertia yang signifikan (titik elbow).
+
+### Implementasi Elbow Method dalam Python
+
+Berikut adalah implementasi Elbow Method untuk menentukan jumlah klaster optimal pada K-means:
+
+```python
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.datasets import make_blobs
+
+# Membuat dataset contoh
+X, y_true = make_blobs(n_samples=300, centers=5, cluster_std=0.60, random_state=0)
+
+# Inertia untuk berbagai nilai K
+inertias = []
+K_values = range(1, 11)  # Nilai K dari 1 hingga 10
+
+for k in K_values:
+    kmeans = KMeans(n_clusters=k, random_state=0)
+    kmeans.fit(X)
+    inertias.append(kmeans.inertia_)
+
+# Plot Elbow Method
+plt.figure(figsize=(8, 5))
+plt.plot(K_values, inertias, 'bo-', markersize=8)
+plt.xlabel('Number of Clusters, K')
+plt.ylabel('Inertia (Sum of Squared Distances)')
+plt.title('Elbow Method for Optimal K')
+plt.xticks(K_values)
+plt.grid(True)
+plt.show()
+```
+
+Pada plot yang dihasilkan, titik di mana penurunan inertia mulai melambat adalah titik elbow, yang menunjukkan jumlah klaster optimal \( K \).
+Berikut adalah implementasi sederhana K-means dalam Python menggunakan `sklearn`:
+
+
 
 ## Penjelasan DBScan dan Implementasinya
 
