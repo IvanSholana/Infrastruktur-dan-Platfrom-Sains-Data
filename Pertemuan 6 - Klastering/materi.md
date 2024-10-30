@@ -91,20 +91,21 @@ Untuk menentukan jumlah klaster \( K \) yang optimal dalam algoritma K-means, sa
 Berikut adalah implementasi Elbow Method untuk menentukan jumlah klaster optimal pada K-means:
 
 ```python
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 from sklearn.datasets import make_blobs
+from sklearn.metrics import silhouette_score
 
-# Membuat dataset contoh
-X, y_true = make_blobs(n_samples=300, centers=5, cluster_std=0.60, random_state=0)
+# Step 1: Membuat dataset simulasi
+X, y_true = make_blobs(n_samples=300, centers=4, cluster_std=0.6, random_state=42)
 
-# Inertia untuk berbagai nilai K
+# Step 2: Menentukan jumlah klaster optimal menggunakan Elbow Method
 inertias = []
-K_values = range(1, 11)  # Nilai K dari 1 hingga 10
+K_values = range(2, 11)  # Nilai K dari 2 hingga 10
 
 for k in K_values:
-    kmeans = KMeans(n_clusters=k, random_state=0)
+    kmeans = KMeans(n_clusters=k, random_state=42)
     kmeans.fit(X)
     inertias.append(kmeans.inertia_)
 
@@ -114,11 +115,47 @@ plt.plot(K_values, inertias, 'bo-', markersize=8)
 plt.xlabel('Number of Clusters, K')
 plt.ylabel('Inertia (Sum of Squared Distances)')
 plt.title('Elbow Method for Optimal K')
-plt.xticks(K_values)
 plt.grid(True)
 plt.show()
 ```
 
+```python
+# Step 3: Mengevaluasi hasil klasterisasi menggunakan Silhouette Score
+silhouette_scores = []
+
+for k in K_values:
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    labels = kmeans.fit_predict(X)
+    score = silhouette_score(X, labels)
+    silhouette_scores.append(score)
+
+# Plot Silhouette Score
+plt.figure(figsize=(8, 5))
+plt.plot(K_values, silhouette_scores, 'ro-', markersize=8)
+plt.xlabel('Number of Clusters, K')
+plt.ylabel('Silhouette Score')
+plt.title('Silhouette Score for Various K')
+plt.grid(True)
+plt.show()
+
+for i in silhouette_scores:
+  print(i)
+```
+```python
+# Step 4: Melakukan klasterisasi dengan K optimal
+kmeans_optimal = KMeans(n_clusters=optimal_k, random_state=42)
+labels_optimal = kmeans_optimal.fit_predict(X)
+
+# Visualisasi hasil klasterisasi
+plt.figure(figsize=(8, 5))
+plt.scatter(X[:, 0], X[:, 1], c=labels_optimal, cmap='viridis', s=50, alpha=0.7)
+plt.scatter(kmeans_optimal.cluster_centers_[:, 0], kmeans_optimal.cluster_centers_[:, 1], s=300, c='red', marker='X')
+plt.title(f"K-means Clustering with Optimal K = {optimal_k}")
+plt.xlabel("Feature 1")
+plt.ylabel("Feature 2")
+plt.grid(True)
+plt.show()
+```
 Pada plot yang dihasilkan, titik di mana penurunan inertia mulai melambat adalah titik elbow, yang menunjukkan jumlah klaster optimal \( K \).
 Berikut adalah implementasi sederhana K-means dalam Python menggunakan `sklearn`:
 
