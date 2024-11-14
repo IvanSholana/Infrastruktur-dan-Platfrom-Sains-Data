@@ -4,12 +4,11 @@
 Dalam praktikum ini, kita akan mengeksplorasi penggunaan machine learning untuk melakukan regresi, klasifikasi, dan klustering menggunakan dataset yang tersedia di Kaggle. Studi kasus ini akan mengacu pada metode supervised dan unsupervised learning dengan mencakup regresi untuk prediksi nilai, klasifikasi untuk identifikasi kelompok, dan klustering untuk menemukan pola. Praktikum ini diharapkan dapat memberikan gambaran nyata mengenai penerapan ketiga metode ini.
 
 ### Tujuan Pembelajaran
-1. **Memahami proses pre-processing dataset sebelum diterapkan pada algoritma machine learning**
-   Tahapan ini meliputi pembersihan data, penanganan nilai yang hilang, encoding data kategorikal, dan normalisasi data. Pre-processing sangat penting agar data siap untuk digunakan oleh model dan hasil yang diperoleh lebih akurat.
-2. **Mengaplikasikan model regresi, klasifikasi, dan klustering menggunakan dataset di Kaggle**
-   Implementasi model-model ini bertujuan untuk memahami perbedaan metode supervised (regresi dan klasifikasi) dan unsupervised (klustering), serta bagaimana mereka dapat digunakan untuk memecahkan masalah yang berbeda.
-3. **Mengimplementasikan teknik evaluasi yang tepat untuk setiap model**
-   Setiap metode memiliki metrik evaluasi yang berbeda untuk menilai performa model, seperti Mean Squared Error (MSE) untuk regresi, akurasi dan precision-recall untuk klasifikasi, serta silhouette score untuk klustering.
+1. **Memahami proses pre-processing dataset sebelum diterapkan pada algoritma machine learning**: Tahapan ini meliputi pembersihan data, penanganan nilai yang hilang, encoding data kategorikal, dan normalisasi data. Pre-processing sangat penting agar data siap untuk digunakan oleh model dan hasil yang diperoleh lebih akurat.
+
+3. **Mengaplikasikan model regresi, klasifikasi, dan klustering menggunakan dataset di Kaggle**: Implementasi model-model ini bertujuan untuk memahami perbedaan metode supervised (regresi dan klasifikasi) dan unsupervised (klustering), serta bagaimana mereka dapat digunakan untuk memecahkan masalah yang berbeda.
+
+5. **Mengimplementasikan teknik evaluasi yang tepat untuk setiap model**: Setiap metode memiliki metrik evaluasi yang berbeda untuk menilai performa model, seperti Mean Squared Error (MSE) untuk regresi, akurasi dan precision-recall untuk klasifikasi, serta silhouette score untuk klustering.
 
 ## Dataset
 Dataset yang akan digunakan dalam praktikum adalah dataset [Student Performance Factors](https://www.kaggle.com/datasets/lainguyn123/student-performance-factors). Dataset ini berisi data mengenai faktor-faktor yang mempengaruhi performa akademik siswa, seperti jenis kelamin, status sosial ekonomi, waktu belajar, hasil ujian dalam beberapa mata pelajaran, serta dukungan orang tua dan sekolah.
@@ -43,7 +42,8 @@ Dataset yang akan digunakan dalam praktikum adalah dataset [Student Performance 
 ### Langkah Awal
 1. **Unduh dataset dari Kaggle dan lakukan import ke dalam environment analisis**
    Setelah dataset diunduh, kita akan menggunakan Python dan library Pandas untuk membaca dan mengelola data. Langkah ini merupakan dasar untuk semua analisis lebih lanjut.
-2. **Lakukan Exploratory Data Analysis (EDA) untuk memahami distribusi, korelasi, dan karakteristik data**
+   
+3. **Lakukan Exploratory Data Analysis (EDA) untuk memahami distribusi, korelasi, dan karakteristik data**
    EDA bertujuan untuk memberikan wawasan awal tentang bagaimana data didistribusikan, apakah terdapat outlier, dan bagaimana fitur-fitur dalam dataset saling berhubungan. Visualisasi menggunakan heatmap sangat membantu dalam melihat korelasi antar fitur.
 
 ```python
@@ -198,7 +198,9 @@ Dalam klustering ini, siswa dikelompokkan ke dalam 2 kluster berdasarkan karakte
 
 ## Evaluasi Model
 - **Regresi**: Evaluasi menggunakan Mean Squared Error (MSE) untuk mengukur seberapa baik model dalam memprediksi nilai akhir siswa. MSE menunjukkan rata-rata kesalahan kuadrat antara nilai prediksi dan nilai aktual.
+  
 - **Klasifikasi**: Evaluasi menggunakan akurasi dan classification report (precision, recall, F1-score) untuk melihat performa model dalam mengkategorikan siswa. Precision mengukur akurasi prediksi positif, recall mengukur kemampuan model untuk menemukan semua contoh positif, dan F1-score merupakan rata-rata harmonik dari precision dan recall.
+  
 - **Klustering**: Evaluasi dengan menggunakan **Silhouette Score** untuk menentukan seberapa baik siswa dikelompokkan berdasarkan kesamaan karakteristik. Silhouette score berkisar antara -1 hingga 1, di mana nilai yang lebih tinggi menunjukkan bahwa objek berada dalam kluster yang benar. Evaluasi menggunakan silhouette score memberikan gambaran tentang kualitas klustering yang telah dilakukan. Nilai yang tinggi menunjukkan bahwa kluster yang terbentuk memiliki objek-objek yang serupa dan berbeda dari kluster lainnya.
 
 ## Kesimpulan
