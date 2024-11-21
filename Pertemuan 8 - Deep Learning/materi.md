@@ -5,6 +5,42 @@ Deep Learning adalah salah satu cabang dari machine learning yang memiliki kemam
 
 Dalam praktikum ini, kita akan mendalami konsep dan implementasi *image processing* menggunakan **PyTorch**, sebuah library populer dalam pengembangan model deep learning. Studi kasus ini akan menggunakan dataset **CIFAR-10** untuk melatih dan menguji model klasifikasi gambar.
 
+## Apa itu Neural Network?
+
+![image](https://github.com/user-attachments/assets/fa100d10-9f2a-4440-982f-9854a74aa34f)
+
+Neural network (jaringan saraf tiruan) adalah salah satu metode dalam machine learning yang terinspirasi dari cara kerja otak manusia. Otak kita memiliki banyak neuron yang saling terhubung, dan mereka bekerja bersama untuk memproses informasi. Neural network mencoba meniru cara kerja ini secara digital untuk menyelesaikan berbagai masalah seperti pengenalan gambar, suara, atau prediksi data.
+
+**Komponen utama neural network:**
+
+1. **Neuron (Node):** Sama seperti otak kita, setiap neuron menerima input, memprosesnya, dan menghasilkan output. 
+   - Contoh: Input bisa berupa angka (misalnya, nilai piksel dari sebuah gambar).
+
+2. **Layer (Lapisan):**
+   - **Input layer:** Tempat data awal dimasukkan (contoh: gambar atau teks).
+   - **Hidden layer:** Lapisan di tengah yang melakukan perhitungan kompleks. Semakin banyak lapisan, semakin kompleks modelnya.
+   - **Output layer:** Tempat hasil akhirnya keluar (contoh: prediksi apakah gambar itu "kucing" atau "anjing").
+
+3. **Bobot (Weights):** Setiap koneksi antar neuron memiliki bobot yang menentukan seberapa kuat satu neuron memengaruhi neuron lainnya. Bobot ini diatur selama proses pelatihan untuk membuat model lebih akurat.
+
+4. **Aktivasi:** Setelah menghitung hasil dari sebuah neuron, biasanya dilakukan proses aktivasi untuk menentukan apakah sinyalnya diteruskan atau tidak (mirip seperti apakah neuron di otak kita "menyala" atau tidak).
+
+![image](https://github.com/user-attachments/assets/68cbb651-62ff-43ae-9778-e4a724d92776)
+
+**Bagaimana cara kerjanya?**
+- Neural network bekerja dengan mengambil data (input), memprosesnya melalui beberapa lapisan, lalu memberikan hasil (output). 
+- Proses ini melibatkan banyak perhitungan matematika, seperti perkalian bobot, penjumlahan, dan fungsi aktivasi.
+- Selama pelatihan, jaringan belajar dengan mencoba meminimalkan kesalahan antara output yang diprediksi dengan jawaban yang benar. Ini dilakukan melalui algoritma bernama **backpropagation**.
+
+**Sederhananya:** Neural network seperti jaringan jalur kabel yang sangat kompleks. Setiap kabel memiliki peran tertentu untuk membawa informasi dari satu titik ke titik lain, dan seluruh jaringan belajar untuk "memahami" data agar bisa memberikan jawaban yang tepat. 
+
+Cocok digunakan untuk apa?
+- Pengenalan wajah
+- Asisten suara seperti Siri atau Alexa
+- Mobil tanpa sopir
+- Prediksi harga pasar saham
+- Dan banyak lagi! 
+
 ## Apa Itu Deep Learning?
 
 ### Definisi
@@ -141,6 +177,7 @@ print(' '.join(f'{classes[labels[j]]}' for j in range(4)))
 ```
 
 Berikut tampilan beberapa gambar dari dataset CIFAR-10:
+
 ![Contoh Gambar dari CIFAR-10](./assets/img-datasets.png)
 
 ## Definisi Arsitektur CNN
