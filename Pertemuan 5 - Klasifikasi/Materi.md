@@ -58,11 +58,11 @@ Agar lebih mudah dipahami, berikut penjelasan mengenai kelebihan dan kekurangan 
 # 2. Naive Bayes Classifier
 Naive Bayes adalah salah satu algoritma supervised learning yang sering digunakan untuk tugas klasifikasi. Algoritma ini didasarkan pada **Teorema Bayes**, yang merupakan teorema dasar dalam probabilitas, dengan asumsi kuat (naive) bahwa **semua fitur atau variabel dalam dataset adalah independen satu sama lain**, yang dalam kenyataannya mungkin tidak benar, namun memberikan hasil yang sangat baik dalam praktik.
 
-### **Dasar dari Naive Bayes: Teorema Bayes**
+### 2.1 **Dasar dari Naive Bayes: Teorema Bayes**
 
 Naive Bayes didasarkan pada **Teorema Bayes**, yang menghitung probabilitas suatu kejadian berdasarkan pengetahuan sebelumnya tentang kondisi yang mungkin terkait dengan kejadian tersebut.
 
-#### **Teorema Bayes**
+#### A. **Teorema Bayes**
 
 Teorema Bayes menyatakan:
 
@@ -82,7 +82,7 @@ Dalam konteks **klasifikasi**, kita mencoba menghitung probabilitas suatu kelas 
 
 ---
 
-### **Konsep Naive Bayes dalam Klasifikasi**
+### 2.2 **Konsep Naive Bayes dalam Klasifikasi**
 
 Pada klasifikasi menggunakan Naive Bayes, kita ingin menentukan probabilitas sebuah data $$\( X = (X_1, X_2, ..., X_n) \$$) termasuk dalam suatu kelas $$\( C \$$). Untuk melakukan ini, kita menghitung probabilitas bersyarat $$\( P(C|X) \$$), yaitu probabilitas kelas $$\( C \$$) terjadi mengingat data $$\( X \$$).
 
@@ -105,7 +105,7 @@ P(C|X) \propto P(X|C) \cdot P(C)
 
 ---
 
-### **Asumsi "Naive" pada Naive Bayes**
+### 2.3 **Asumsi "Naive" pada Naive Bayes**
 
 Naive Bayes membuat asumsi bahwa semua fitur $$\( X_1, X_2, ..., X_n \$$) **saling independen** satu sama lain, artinya kejadian satu fitur tidak mempengaruhi fitur lainnya. Ini adalah asumsi yang sangat sederhana dan seringkali tidak benar dalam praktik, tetapi tetap memberikan hasil yang bagus dalam banyak kasus.
 
@@ -115,9 +115,9 @@ $$\
 P(X|C) = P(X_1|C) \cdot P(X_2|C) \cdot ... \cdot P(X_n|C)
 \$$
 
-# Langkah-langkah Naive Bayes
+### 2.4 Langkah-langkah Naive Bayes
 
-1. **Hitung probabilitas kemunculan setiap fitur**
+1. **Hitung probabilitas kemunculan setiap fitur pada setiap kelas**
 
 ![alt text](image-5.png)
 
@@ -144,3 +144,5 @@ P(X|C) = P(X_1|C) \cdot P(X_2|C) \cdot ... \cdot P(X_n|C)
 5. **Bandingkan Hasilnya**
 
 ![alt text](image-13.png)
+
+---
