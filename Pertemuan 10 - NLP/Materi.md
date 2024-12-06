@@ -71,14 +71,16 @@ Contoh:
 3. **Representasikan Teks ke Bentuk Angka**  
    Karena komputer tidak memahami teks, kita perlu mengubah teks menjadi angka.  
    Contoh:
+   
     ![alt text](image-4.png)
+
    - **Bag of Words (BoW)**: Menghitung frekuensi setiap kata.
 
-4. **Bangun Model NLP**  
+5. **Bangun Model NLP**  
    Gunakan algoritma pembelajaran mesin untuk menganalisis atau memprediksi sesuatu dari teks.  
    Contoh: Analisis sentimen menggunakan algoritma seperti Naive Bayes atau Logistic Regression.
 
-5. **Evaluasi Model**  
+6. **Evaluasi Model**  
    Ukur seberapa baik model bekerja dengan menggunakan metrik seperti akurasi, presisi, atau recall.
 
 ### 4. **Praktik Dasar dengan Python**
