@@ -71,14 +71,16 @@ Contoh:
 3. **Representasikan Teks ke Bentuk Angka**  
    Karena komputer tidak memahami teks, kita perlu mengubah teks menjadi angka.  
    Contoh:
+   
     ![alt text](image-4.png)
+
    - **Bag of Words (BoW)**: Menghitung frekuensi setiap kata.
 
-4. **Bangun Model NLP**  
+5. **Bangun Model NLP**  
    Gunakan algoritma pembelajaran mesin untuk menganalisis atau memprediksi sesuatu dari teks.  
    Contoh: Analisis sentimen menggunakan algoritma seperti Naive Bayes atau Logistic Regression.
 
-5. **Evaluasi Model**  
+6. **Evaluasi Model**  
    Ukur seberapa baik model bekerja dengan menggunakan metrik seperti akurasi, presisi, atau recall.
 
 ### 4. **Praktik Dasar dengan Python**
@@ -134,3 +136,43 @@ Membangun chatbot sederhana untuk menjawab pertanyaan umum.
 
 #### 3. **Penerjemah Mini**
 Menggunakan pustaka seperti Google Translator API untuk menerjemahkan teks.
+
+## Klasifikasi Stentiment
+```python
+# Import pustaka yang diperlukan
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.metrics import accuracy_score, classification_report
+
+# Langkah 1: Memuat Data CSV
+# Gantilah 'data.csv' dengan path file CSV Anda
+df = pd.read_csv('train.csv')
+
+# Tampilkan beberapa data untuk memastikan format CSV benar
+print(df.head())
+
+# Langkah 2: Memisahkan fitur dan label
+X = df['tweet']  # Fitur (teks)
+y = df['label']  # Label (kategori)
+
+# Langkah 3: Membagi data menjadi data latih dan data uji (80% latih, 20% uji)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Langkah 4: Menggunakan CountVectorizer untuk mengubah teks menjadi representasi numerik (Bag of Words)
+vectorizer = CountVectorizer(stop_words='english')  # stop_words='english' untuk menghapus stopwords
+X_train_vec = vectorizer.fit_transform(X_train)  # Melakukan fit dan transformasi pada data latih
+X_test_vec = vectorizer.transform(X_test)  # Menggunakan transformasi yang sama untuk data uji
+
+# Langkah 5: Membuat dan melatih model Naive Bayes
+model = MultinomialNB()
+model.fit(X_train_vec, y_train)
+
+# Langkah 6: Melakukan prediksi pada data uji
+y_pred = model.predict(X_test_vec)
+
+# Langkah 7: Evaluasi model
+print(f'Akurasi Model: {accuracy_score(y_test, y_pred)}')
+print(f'Laporan Klasifikasi:\n{classification_report(y_test, y_pred)}')
+```
