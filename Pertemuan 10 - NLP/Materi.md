@@ -148,13 +148,13 @@ from sklearn.metrics import accuracy_score, classification_report
 
 # Langkah 1: Memuat Data CSV
 # Gantilah 'data.csv' dengan path file CSV Anda
-df = pd.read_csv('data.csv')
+df = pd.read_csv('train.csv')
 
 # Tampilkan beberapa data untuk memastikan format CSV benar
 print(df.head())
 
 # Langkah 2: Memisahkan fitur dan label
-X = df['text']  # Fitur (teks)
+X = df['tweet']  # Fitur (teks)
 y = df['label']  # Label (kategori)
 
 # Langkah 3: Membagi data menjadi data latih dan data uji (80% latih, 20% uji)
