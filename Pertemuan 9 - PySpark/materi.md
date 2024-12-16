@@ -196,12 +196,16 @@ df.printSchema() # Menampilkan struktur skema DataFrame
 ```
 
 #### **b. RDD (Resilient Distributed Dataset)**
-RDD adalah struktur data dasar di Spark, cocok untuk data yang tidak terstruktur. Operasi pada RDD bersifat low-level dibandingkan DataFrame.
+`Resilient Distributed Dataset (RDD)` adalah struktur data dasar di Apache Spark yang dirancang untuk mendukung pemrosesan data besar dengan toleransi kesalahan (fault-tolerance) dan paralelisme tinggi. RDD memungkinkan pengguna untuk memproses data besar yang terdistribusi di seluruh cluster secara efisien. 
+
+**Karakteristik dari RDD :**
+1. **Immutable** : Setelah dibuat, RDD tidak dapat diubah. Operasi pada RDD selalu menghasilkan RDD baru.
+2. **Lazy Evaluation** : Operasi pada RDD tidak dieksekusi langsung. Eksekusi dilakukan hanya saat tindakan (action) dipanggil.
 
 #### **Kode Contoh: Membuat dan Memanipulasi RDD**
 ```python
 # Membuat RDD dari list
-rdd = spark.sparkContext.parallelize([1, 2, 3, 4])
+rdd = spark.range(1, 5).rdd.map(lambda x: x[0])  # Membuat RDD dari DataFrame
 
 # Transformasi: Mengalikan setiap elemen dengan 2
 rdd_transformed = rdd.map(lambda x: x * 2)
