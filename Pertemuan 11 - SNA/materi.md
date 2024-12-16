@@ -95,10 +95,14 @@ Dalam analisis jaringan sosial (Social Network Analysis - SNA), memahami struktu
 
 ## **Centrality Metrics (Ukuran Node)**
 - **Degree Centrality** : Degree centrality mengukur jumlah koneksi langsung yang dimiliki oleh sebuah simpul (node). Dalam jaringan tak berarah, ini dihitung sebagai jumlah sisi (edges) yang terhubung ke simpul tersebut. Dalam jaringan berarah, dihitung sebagai `in-degree` atau jumlah koneksi masuk dan `out-degree` atau jumlah koneksi keluar. Nilai ini dapat diartikan bahwa Node dengan degree tinggi dianggap lebih terhubung atau lebih populer dalam jaringan.
+
 - **Closeness Centrality** : Closeness centrality mengukur seberapa cepat sebuah node dapat mencapai node lain dalam jaringan. Semakin rendah jarak rata-rata dari sebuah node ke node lainnya, semakin tinggi closeness centrality-nya. Node dengan closeness centrality tinggi berada di posisi strategis untuk menyebarkan informasi dengan cepat ke seluruh jaringan.
+
 - **Betweenness Centrality** : Betweenness centrality mengukur seberapa sering sebuah node menjadi perantara (penghubung) dalam jalur terpendek antara dua node lain. Hal ini dapat diartikan bahwa Node dengan betweenness tinggi adalah "broker" atau "jembatan" utama yang menghubungkan bagian-bagian berbeda dari jaringan dan Berguna untuk memahami node yang berpengaruh dalam jaringan.
 
 ## **Global Metrics**
 Ukuran global menggambarkan karakteristik jaringan secara keseluruhan, memberikan wawasan tentang pola hubungan dalam jaringan.
+
 - **Density** : ukuran yang menunjukkan seberapa padat jaringan, yaitu sejauh mana semua node dalam jaringan saling terhubung. Nilai density tinggi berarti banyak hubungan antara node dalam jaringan.
+
 - **Clustering Coefficient** : Clustering coefficient mengukur kecenderungan node untuk membentuk kelompok (cluster). Ini menunjukkan seberapa kuat hubungan antar tetangga sebuah node.
