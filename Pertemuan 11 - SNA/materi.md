@@ -193,7 +193,6 @@ Ukuran global menggambarkan karakteristik jaringan secara keseluruhan, memberika
 
 - **Density** : ukuran yang menunjukkan seberapa padat jaringan, yaitu sejauh mana semua node dalam jaringan saling terhubung. Nilai density tinggi berarti banyak hubungan antara node dalam jaringan.
 
-Interpretasi:
+**Interpretasi:**
 Density = 1: Ini menunjukkan bahwa jaringan ini sangat padat karena semua node (akun) terhubung secara langsung satu sama lain, yaitu semua akun saling meretweet. Ini berarti tidak ada akun yang terisolasi, dan informasi dapat tersebar dengan sangat cepat di antara semua akun.
-
 Jika ada lebih sedikit hubungan (misalnya, jika beberapa akun tidak saling terhubung), nilai density akan lebih rendah. Misalnya, jika hanya ada 6 hubungan (edge), maka density-nya adalah 6/10 =0.6.
