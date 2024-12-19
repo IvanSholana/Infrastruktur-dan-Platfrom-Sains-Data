@@ -113,7 +113,6 @@ Misalkan ada beberapa akun Twitter yang terlibat dalam percakapan tentang topik 
 1. **Akun-Akun yang Terlibat**:
    - Ada 5 akun Twitter: A, B, C, D, E.
 2. **Interaksi Retweet**:
-
    - Akun **A** memposting tweet dan mendapatkan retweet dari akun **B** dan **C**.
    - Akun **B** memposting tweet dan mendapatkan retweet dari akun **A**, **C**, dan **D**.
    - Akun **C** memposting tweet dan mendapatkan retweet dari akun **A** dan **E**.
@@ -121,7 +120,6 @@ Misalkan ada beberapa akun Twitter yang terlibat dalam percakapan tentang topik 
    - Akun **E** memposting tweet dan mendapatkan retweet dari akun **C** dan **D**.
 
 3. **Perhitungan Degree Centrality**:
-
    - **Degree centrality** untuk setiap akun dihitung dengan menjumlahkan jumlah retweet yang diterima dan yang dikirim:
      - **A**: Retweet yang diterima dari B dan C → Degree Centrality = 2.
      - **B**: Retweet yang diterima dari A, C, dan D → Degree Centrality = 3.
@@ -140,24 +138,25 @@ Dalam konteks retweet Twitter, **Closeness Centrality** mengukur seberapa cepat 
 ### Kasus: Analisis Closeness Centrality pada Retweet di Twitter
 
 1. **Akun-Akun yang Terlibat**:
-
    - Ada 5 akun Twitter: A, B, C, D, E.
 
 2. **Interaksi Retweet**:
-
-   - **Akun A** mengirim tweet dan diretweet oleh **B** dan **C**.
-   - **Akun B** mengirim tweet dan diretweet oleh **A** dan **D**.
-   - **Akun C** mengirim tweet dan diretweet oleh **A** dan **E**.
-   - **Akun D** mengirim tweet dan diretweet oleh **B** dan **E**.
-   - **Akun E** mengirim tweet dan diretweet oleh **C** dan **D**.
+   - Akun A mengirim tweet dan diretweet oleh B, C, dan F.
+   - Akun B mengirim tweet dan diretweet oleh A dan D.
+   - Akun C mengirim tweet dan diretweet oleh A dan E.
+   - Akun D mengirim tweet dan diretweet oleh B, E, dan F.
+   - Akun E mengirim tweet dan diretweet oleh C dan D.
+   - Akun F mengirim tweet dan diretweet oleh A dan D.
 
 3. **Perhitungan Closeness Centrality**:
-
-   - **Closeness centrality** dihitung berdasarkan jarak rata-rata dari setiap akun ke akun lainnya, yaitu seberapa cepat akun tersebut dapat menjangkau akun lain. Semakin rendah rata-rata jarak, semakin tinggi closeness centrality-nya.
+- **Closeness centrality** dihitung berdasarkan jarak rata-rata dari setiap akun ke akun lainnya, yaitu seberapa cepat akun tersebut dapat menjangkau akun lain. Semakin pendek rata-rata jarak antar akun, semakin tinggi closeness centrality-nya.
 
 4. **Interpretasi Closeness Centrality**:
-   - **Akun A** memiliki jarak yang lebih pendek ke banyak akun lain (misalnya A dapat langsung berhubungan dengan B dan C), sehingga memiliki closeness centrality yang tinggi, menunjukkan bahwa A berada di posisi strategis untuk menyebarkan informasi ke akun lain dalam jaringan.
-   - **Akun B, C, D, dan E** memiliki jarak yang lebih panjang antar satu sama lain, sehingga mereka memiliki closeness centrality yang lebih rendah dibandingkan dengan A.
+   - **Akun A** memiliki jarak yang lebih pendek ke banyak akun lain (misalnya A dapat langsung berhubungan dengan B, C, dan F), sehingga memiliki closeness centrality yang tinggi (0.7143). Ini menunjukkan bahwa Akun A berada di posisi strategis untuk menyebarkan informasi ke akun lain dalam jaringan.
+   - **Akun D** juga memiliki closeness centrality yang tinggi (0.7143), karena memiliki banyak jalur langsung menuju akun lainnya (misalnya D terhubung langsung dengan B, E, dan F).
+   - **Akun B, C, E, dan F** memiliki closeness centrality yang lebih rendah (0.625), karena mereka memiliki jarak yang lebih panjang antar satu sama lain atau koneksi yang lebih terbatas dalam jaringan.
+
+Dengan demikian, **Akun A** dan **Akun D** memiliki posisi yang lebih sentral dalam jaringan ini dibandingkan dengan akun lainnya, yang tercermin dari nilai **closeness centrality** mereka yang lebih tinggi.
 
 Closeness centrality memberikan gambaran tentang seberapa cepat suatu akun dapat menghubungkan dan menyebarkan informasi kepada akun-akun lain di dalam jaringan retweet Twitter.
 
